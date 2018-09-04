@@ -1,0 +1,13 @@
+/**
+ * Created by 郭娜 on 2018/9/4.
+ */
+var http = require("http");
+http.createServer((req,res)=>{
+    console.log("服务器接收到："+req.url)
+    res.writeHead(200,{"Content-type":"text/html;charset=utf-8"});
+    res.write("<h1>标题标题</h1>");
+    res.write("<h2>标题标题</h2>");
+    res.write("<h3>标题标题</h3>");
+
+    res.end((1+2+3).toString());
+}).listen(3030,"127.0.0.1")

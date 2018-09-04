@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ajax.js"></script>
+</head>
+<body>
+    <!--//ajax-->
+    <p>姓名：<input id="user" type="text" name="user" placeholder="用户名"></p>
+    <p>姓名：<input id="pass" type="password" name="pass" placeholder="密码"></p>
+    <p>
+        <input type="button" value="注册" id="regBtn">
+        <input type="button" value="登录" id="loginBtn">
+    </p>
+    <script>
+        window.onload=function (){
+            var oUser = document.getElementById("user");
+            var oPass = document.getElementById("pass");
+            var oRegBtn = document.getElementById("regBtn");
+            var oLonginBtn = document.getElementById("loginBtn");
+
+            oRegBtn.onclick = function () {
+                ajax({
+                    method:'GET',
+                    url:"/user",   //接口
+                    data:{
+                        act:'reg',
+                        user:oUser.value,
+                        pass:oPass.value
+                    },
+                    success:function (data) {
+                        console.log(data);
+                        var _data = eval("("+data+")");
+                        if (_data.ok){
+                            alert(_data.msg)
+                        }alert(_data.msg)
+
+                    }
+                });
+
+            }
+            oLonginBtn.onclick = function () {
+                ajax({
+                    method:'GET',
+                    url:"/user",   //接口
+                    data:{
+                        act:'login',
+                        user:oUser.value,
+                        pass:oPass.value
+                    },
+                    success:function (data) {
+                        console.log(data);
+                        var _data = eval("("+data+")");
+                        if (_data.ok){
+                            alert(_data.msg)
+                        }else {
+                            alert(_data.msg)
+                        }
+
+                    }
+                });
+
+            }
+        }
+    </script>
+
+</body>
+</html>

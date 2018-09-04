@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    width: 100%;
+    height: auto;
+    /*font-size: 100px;    !* rem 是根据根元素的大小来的 *!*/
+}
+body{
+/*width: 750px;//100%*/
+    width: 100%;
+    height: auto;
+}
+img{
+    display: block;
+}
+ul li{
+    list-style: none;
+}
+.lt{
+    float: left;
+}
+.rt{
+    float: right;
+}
